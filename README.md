@@ -8,9 +8,6 @@ Welcome to the Utility Vehicle Rental System (UVRS) repository! UVRS is a platfo
 -   [Features](#features)
 -   [Technologies Used](#technologies-used)
 -   [Getting Started](#getting-started)
--   [Folder Structure](#folder-structure)
--   [Contributing](#contributing)
--   [License](#license)
 
 ## Overview
 
@@ -31,23 +28,18 @@ The Utility Vehicle Rental System is designed to streamline the rental process f
 ### Frontend
 
 -   React.js
--   Redux for State Management
 -   Axios for API Communication
 
 ### Backend
 
 -   Spring Boot (Java)
 -   Spring Data JPA for Database Interaction
+-   Spring security
 -   JWT for Authentication
 
 ### Database
 
--   PostgreSQL
-
-### Deployment
-
--   AWS (Amazon Web Services)
--   Docker for Containerization
+-   Mysql
 
 ## Getting Started
 
@@ -64,12 +56,14 @@ To run the UVRS locally, follow these steps:
    cd uvrs
 
 3. **Set up the backend:**
-   Navigate to the backend directory.
-   Configure the database connection in application.properties.
-   Run the Spring Boot application.
+
+-   Navigate to the backend directory.
+-   Configure the database connection in application. properties.
+-   Run the Spring Boot application.
 
 4. **Set up the frontend:**
-   Navigate to the frontend directory.
-   Install dependencies with npm install.
-   Start the React app with npm run dev.
-   Access the UVRS app at http://localhost:3000 in your browser.
+
+-   Navigate to the frontend directory.
+-   Install dependencies with npm install.
+-   Start the React app with npm run dev.
+-   Access the UVRS app at http://localhost:3000 in your browser.
