@@ -4,6 +4,7 @@ import com.uvrs.enums.Pages;
 import com.uvrs.enums.VehicleFilter;
 import com.uvrs.models.Vehicle;
 import com.uvrs.services.VehicleService;
+import jakarta.websocket.server.PathParam;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -60,7 +61,7 @@ public class VehicleController {
     return vehicleService.retrieveAllVehicles(pages);
   }
 
-  @GetMapping("/{plateNo}")
+  @GetMapping("/id{plateNo}")
   public Vehicle retrieveVehicleById(@PathVariable String plateNo) {
     return vehicleService.retrieveVehicleById(plateNo);
   }

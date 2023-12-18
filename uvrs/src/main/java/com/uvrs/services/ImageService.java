@@ -6,7 +6,6 @@ import com.uvrs.repositories.ImageRepository;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,13 +55,12 @@ public class ImageService {
       throw new RuntimeException("Image not found: " + imageUrl);
     }
   }
-
-  private void deleteImageFile(String imageUrl, String imageFolder) {
-    try {
-      Path imagePath = Paths.get(imageFolder, imageUrl);
-      Files.deleteIfExists(imagePath);
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-  }
+  // private void deleteImageFile(String imageUrl, String imageFolder) {
+  //   try {
+  //     Path imagePath = Paths.get(imageFolder, imageUrl);
+  //     Files.deleteIfExists(imagePath);
+  //   } catch (IOException e) {
+  //     e.printStackTrace();
+  //   }
+  // }
 }
