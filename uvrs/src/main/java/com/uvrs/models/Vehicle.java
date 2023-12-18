@@ -3,6 +3,7 @@ package com.uvrs.models;
 import com.uvrs.enums.Brands;
 import com.uvrs.enums.VehicleStatus;
 import jakarta.persistence.*;
+import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -42,10 +43,10 @@ public class Vehicle {
   @JoinColumn(name = "pricing_type")
   private Pricing pricingType;
 
-  @OneToOne(
+  @OneToMany(
     fetch = FetchType.EAGER,
     targetEntity = Image.class,
     mappedBy = "vehicle"
   )
-  private Image image;
+  private List<Image> image;
 }

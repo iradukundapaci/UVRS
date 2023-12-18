@@ -3,9 +3,7 @@ package com.uvrs.controllers;
 import com.uvrs.enums.Pages;
 import com.uvrs.enums.VehicleFilter;
 import com.uvrs.models.Vehicle;
-import com.uvrs.services.ImageService;
 import com.uvrs.services.VehicleService;
-import java.io.IOException;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -20,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping(value = "/vehicles")
@@ -29,25 +26,11 @@ public class VehicleController {
   @Autowired
   private VehicleService vehicleService;
 
-  @Autowired
-  private ImageService imageService;
-
   @PostMapping("/add")
-  public boolean addVehicle(
-    @RequestBody Vehicle vehicle,
-    @RequestParam("file") MultipartFile file
-  ) {
+  public boolean addVehicle(@RequestBody Vehicle vehicle) {
     Vehicle savedVehicle = vehicleService.addVehicle(vehicle);
     if (savedVehicle != null) {
-      try {
-        boolean image = imageService.uploadImage(file, savedVehicle);
-        if (image) {
-          return true;
-        }
-      } catch (IOException e) {
-        e.printStackTrace();
-        return false;
-      }
+      return true;
     }
     return false;
   }

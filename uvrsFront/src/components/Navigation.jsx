@@ -4,8 +4,18 @@ import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
+import React, { useState } from "react";
 
-function Navigation() {
+function Navigation({ onSearchChange }) {
+	const handleSearchChange = (event) => {
+		const value = event.target.value;
+		onSearchChange(value);
+	};
+
+	const handleSearchSubmit = (event) => {
+		event.preventDefault();
+		console.log(event);
+	};
 	return (
 		<>
 			<Navbar expand="lg" className="bg-body-tertiary">
@@ -18,22 +28,41 @@ function Navigation() {
 						id="navbarScroll"
 						className="col-md-6 d-flex flex-row justify-content-between"
 					>
-						<Form className="d-flex">
+						<Form className="d-flex" onSubmit={handleSearchSubmit}>
 							<Form.Control
 								type="search"
 								placeholder="Search"
 								className="me-2"
 								aria-label="Search"
+								onChange={handleSearchChange}
 							/>
-							<Button variant="outline-success">Search</Button>
+							<Button variant="outline-success" type="submit">
+								Search
+							</Button>
 						</Form>
 						<Nav
 							className="my-2 my-lg-0"
 							style={{ maxHeight: "100px" }}
 							navbarScroll
 						>
-							<Link to={"/login"}>Login</Link>
-							<Link to={"/signup"}>Signup</Link>
+							<Link
+								to={"/login"}
+								style={{
+									textDecoration: "none",
+									margin: "0 10px 0 0",
+								}}
+							>
+								Login
+							</Link>
+							<Link
+								to={"/signup"}
+								style={{
+									textDecoration: "none",
+									margin: "0 10px 0 0",
+								}}
+							>
+								Signup
+							</Link>
 						</Nav>
 					</Navbar.Collapse>
 				</Container>

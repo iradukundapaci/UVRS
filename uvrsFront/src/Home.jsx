@@ -7,6 +7,12 @@ import axios from "axios";
 import "./App.css";
 
 const Home = () => {
+	const [searchValue, setSearchValue] = useState("");
+
+	const handleSearchChange = (value) => {
+		setSearchValue(value);
+		console.log(searchValue);
+	};
 	const [vehicles, setVehicles] = useState([]);
 
 	useEffect(() => {
@@ -26,7 +32,7 @@ const Home = () => {
 	console.log(vehicles);
 	return (
 		<>
-			<Navigation />
+			<Navigation onSearchChange={handleSearchChange} />
 			<div id="pageBody">
 				<div id="filterBody">Filter</div>
 				<div id="vehicleList">

@@ -34,7 +34,7 @@ function VehicleCard(vehicle) {
 
 	return (
 		<Card style={{ width: "16rem", margin: "0 10px 10px 0" }}>
-			<Card.Img variant="top" src="holder.js/100px180" />
+			<Card.Img variant="top" src="src/assets/Volvo-Trucks.jpg" />
 			<Card.Body>
 				<Card.Title>
 					{vehicle.vehicle.brandName} {vehicle.vehicle.vehicleModel}

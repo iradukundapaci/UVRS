@@ -16,7 +16,7 @@ public class Image {
   private String image;
 
   @JsonIgnore
-  @OneToOne(fetch = FetchType.EAGER)
+  @ManyToOne(fetch = FetchType.EAGER)
   private Vehicle vehicle;
 
   public Image() {}
